@@ -36,6 +36,7 @@ function all(_iterable) {
       } else {
         result[index] = res;
         total++;
+        
          if (!isThereEmptyElement(result) && result.length === iterable.length) {
             resolve(result);
           }
