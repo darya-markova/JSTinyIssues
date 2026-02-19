@@ -16,7 +16,7 @@ function all(_iterable) {
   return new Promise(function (resolve, reject) {
     let result = [];
     let total = 0;
-    const iterable = [..._iterable]; // для возможности передачи сетов
+    const iterable = [..._iterable]; 
     
     if (iterable.length < 1) {
       resolve([]);
@@ -27,6 +27,7 @@ function all(_iterable) {
          Promise.resolve(item).then((res) => {
           result[index] = res;
           total++;
+
           if (!isThereEmptyElement(result) && result.length === iterable.length) {
             resolve(result);
           }
@@ -39,7 +40,7 @@ function all(_iterable) {
         
          if (!isThereEmptyElement(result) && result.length === iterable.length) {
             resolve(result);
-          }
+         }
       }
     });
   });
