@@ -107,5 +107,14 @@
     })
   }
 
+  Promise.prototype.myFinally = function(callback) {
+    const constructor = this.constructor || Promise;
+  
+    return this.then(
+      value => constructor.resolve(callback()).then(() => value),
+      reason => constructor.resolve(callback()).then(() => { throw reason; }),
+    );
+  }
+
   window.Promise = Promise;
 })();
