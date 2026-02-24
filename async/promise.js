@@ -118,3 +118,14 @@
 
   window.Promise = Promise;
 })();
+
+
+function withFallback(asyncFn, fallbackFn) {
+  return async function(...args) {
+    try {
+      return await asyncFn(...args);
+    } catch (error) {
+      return fallbackFn(error, ...args);
+    }
+  };
+}
