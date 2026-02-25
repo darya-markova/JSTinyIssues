@@ -129,4 +129,3 @@ function withFallback(asyncFn, fallbackFn) {
     }
   };
 }
-// пример использования
