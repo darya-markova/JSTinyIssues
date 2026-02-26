@@ -35,4 +35,3 @@ function compose(functions) {
     return result;
   };
 }
-
