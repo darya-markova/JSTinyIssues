@@ -129,3 +129,16 @@ function withFallback(asyncFn, fallbackFn) {
     }
   };
 }
+
+async function run(fns, limit) {
+  const results = [];
+  const total = fns.length;
+
+  for (let i = 0; i < total; i += limit) {
+    const batch = fns.slice(i, i + limit);
+    const batchResults = await Promise.all(batch.map(fn => fn()));
+    results.push(...batchResults)
+  }
+
+  return results;
+}
