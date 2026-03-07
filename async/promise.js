@@ -130,6 +130,7 @@ function withFallback(asyncFn, fallbackFn) {
   };
 }
 
+// мы запускаем массив функций limit единовременно
 async function run(fns, limit) {
   const results = [];
   const total = fns.length;
@@ -142,3 +143,8 @@ async function run(fns, limit) {
 
   return results;
 }
+
+async function loadAll(urls, load, limit, cb) {
+
+}
+
